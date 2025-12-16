@@ -1,0 +1,568 @@
+/* Warna berdasarkan logo ElFi Creative */
+:root {
+  --primary-blue: #5c9ca1; /* Biru kehijauan dari outline logo */
+  --secondary-yellow: #e6b34a; /* Kuning dari pensil logo */
+  --light-blue-bg: #eaf7f8; /* Latar belakang lingkaran biru muda */
+  --text-dark: #333333;
+  --text-light: #fefefe;
+  --white: #ffffff;
+  --gray-bg: #f8f8f8;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.6;
+  color: var(--text-dark);
+  background-color: var(--gray-bg);
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+/* Header */
+header {
+  background-color: var(--white);
+  padding: 15px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+header .logo img {
+  height: 40px; /* Sesuaikan ukuran logo */
+}
+
+header nav ul {
+  list-style: none;
+}
+
+header nav ul li {
+  display: inline-block;
+  margin-left: 25px;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: var(--text-dark);
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+  color: var(--primary-blue);
+}
+
+/* Hero Section */
+#hero {
+  background-color: var(--light-blue-bg); /* Latar belakang biru muda */
+  text-align: center;
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+#hero .hero-logo {
+  width: 180px; /* Lebar kita tentukan agar sama dengan tinggi */
+  height: 180px; /* Tinggi disamakan agar jadi persegi dulu */
+  border-radius: 50%; /* INI KUNCINYA: Membuat sudut melingkar sempurna */
+  object-fit: cover; /* Menjaga gambar di dalamnya agar tidak gepeng */
+  background-color: var(
+    --white
+  ); /* Memberi latar putih agar lingkaran terlihat jelas */
+  padding: 15px; /* Memberi jarak sedikit antara gambar dan pinggir lingkaran */
+  box-shadow: 0 8px 20px rgba(50, 118, 128, 0.15); /* Menambah bayangan lembut agar menonjol */
+  margin-bottom: 25px;
+}
+
+#hero h1 {
+  font-size: 3em;
+  color: var(--primary-blue);
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+#hero p {
+  font-size: 1.2em;
+  color: var(--text-dark);
+  margin-bottom: 30px;
+}
+
+/* Team Section */
+#team {
+  padding: 60px 0;
+  text-align: center;
+  background-color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+#team::before {
+  /* Bentuk dekorasi di belakang team */
+  content: "";
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  width: 250px;
+  height: 250px;
+  background-color: rgba(92, 156, 161, 0.1); /* primary-blue dengan opacity */
+  transform: rotate(45deg);
+  z-index: 0;
+  border-radius: 20px;
+}
+
+#team::after {
+  /* Bentuk dekorasi di belakang team */
+  content: "";
+  position: absolute;
+  bottom: -50px;
+  right: -50px;
+  width: 250px;
+  height: 250px;
+  background-color: rgba(92, 156, 161, 0.1);
+  transform: rotate(-45deg);
+  z-index: 0;
+  border-radius: 20px;
+}
+
+#team h2 {
+  font-size: 2.5em;
+  margin-bottom: 40px;
+  color: var(--primary-blue);
+  position: relative; /* Agar z-index bekerja di atas pseudo-elements */
+  z-index: 1;
+}
+
+.team-members {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+.team-member {
+  text-align: center;
+  width: 250px;
+}
+
+.team-member img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--primary-blue);
+  margin-bottom: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.team-member h3 {
+  font-size: 1.5em;
+  margin-bottom: 5px;
+  color: var(--text-dark);
+}
+
+.team-member p {
+  color: #666;
+}
+
+/* Product Section */
+#product {
+  padding: 60px 0;
+  text-align: center;
+  background-color: var(--gray-bg);
+}
+
+#product h2 {
+  font-size: 2.5em;
+  margin-bottom: 40px;
+  color: var(--primary-blue);
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  justify-content: center;
+}
+
+.product-item {
+  background-color: var(--white);
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.product-item:hover {
+  transform: translateY(-5px);
+}
+
+.product-item img {
+  max-width: 100%;
+  height: 200px; /* Ukuran gambar produk konsisten */
+  object-fit: contain; /* Agar gambar tidak terpotong */
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+
+.product-item h3 {
+  font-size: 1.6em;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+}
+
+.product-item p {
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.order-button {
+  display: inline-block;
+  background-color: var(--secondary-yellow);
+  color: var(--white);
+  padding: 12px 25px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.order-button:hover {
+  background-color: darken(
+    var(--secondary-yellow),
+    10%
+  ); /* Sedikit lebih gelap */
+}
+
+/* Ready to Order Section */
+.ready-to-order {
+  background-color: var(--primary-blue);
+  text-align: center;
+  padding: 80px 0;
+  color: var(--white);
+}
+
+.ready-to-order h2 {
+  font-size: 2.8em;
+  margin-bottom: 30px;
+  color: var(--white);
+}
+
+.whatsapp-button {
+  display: inline-block;
+  background-color: var(--light-blue-bg); /* Warna latar belakang logo */
+  color: var(--primary-blue);
+  padding: 18px 40px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 1.3em;
+  font-weight: 700;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.whatsapp-button:hover {
+  background-color: var(--white);
+  color: var(--primary-blue);
+}
+
+/* Footer */
+footer {
+  background-color: var(--text-dark);
+  color: var(--white);
+  text-align: center;
+  padding: 30px 0;
+  font-size: 0.9em;
+}
+
+/* --- STYLE FOOTER SOSIAL MEDIA BARU --- */
+
+footer .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px; /* Jarak antar akun sosmed */
+  flex-wrap: wrap; /* Agar aman di layar HP */
+}
+
+.social-links a {
+  display: flex;
+  align-items: center; /* Sejajarkan ikon dan teks secara vertikal */
+  color: var(--white);
+  font-size: 1em; /* Ukuran teks */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+/* Memberi jarak antara ikon dan tulisannya */
+.social-links a i {
+  margin-right: 8px;
+  font-size: 1.2em; /* Ikon sedikit lebih besar dari teks */
+}
+
+/* Efek saat kursor diarahkan */
+.social-links a:hover {
+  color: var(--secondary-yellow); /* Berubah jadi kuning emas */
+}
+
+/* Khusus warna ikon saat hover (opsional, agar warna-warni) */
+.social-links a:hover .fa-whatsapp {
+  color: #25d366;
+}
+.social-links a:hover .fa-instagram {
+  color: #e1306c;
+}
+.social-links a:hover .fa-tiktok {
+  color: #00f2ea;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  header nav ul {
+    margin-top: 15px;
+  }
+
+  header nav ul li {
+    margin: 0 10px;
+  }
+
+  #hero h1 {
+    font-size: 2.5em;
+  }
+
+  #team .team-members {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .team-member {
+    width: 100%;
+  }
+
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ready-to-order h2 {
+    font-size: 2em;
+  }
+
+  .whatsapp-button {
+    font-size: 1.1em;
+    padding: 15px 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  #hero h1 {
+    font-size: 2em;
+  }
+
+  #hero p {
+    font-size: 1em;
+  }
+
+  #team h2,
+  #product h2,
+  .ready-to-order h2 {
+    font-size: 2em;
+  }
+}
+
+/* Helper function for darken (not natively supported in plain CSS, but for conceptual understanding) */
+/* You would need a preprocessor like Sass/Less for this, or manually adjust colors */
+/* For this example, I'll use a slightly darker hex or manually darken */
+/* function darken(color, percent) {
+    // This is conceptual. In real CSS, you'd use specific hex or HSL values.
+    // For now, I'll just hardcode a slightly darker color for the hover state.
+} */
+
+/* Manually adjusted hover color for .order-button */
+.order-button:hover {
+  background-color: #dda02b; /* A slightly darker yellow */
+}
+
+/* --- TAMBAHAN FITUR TOMBOL LIHAT --- */
+
+/* Wadah agar tombol Lihat dan Order sejajar */
+.product-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Jarak antar tombol */
+  margin-top: 20px;
+}
+
+/* Style untuk tombol Lihat (Outline Style) */
+.view-button {
+  display: inline-flex; /* Agar ikon dan teks rata tengah */
+  align-items: center;
+  justify-content: center;
+  background-color: transparent; /* Background transparan */
+  color: var(--primary-blue); /* Warna teks sesuai tema */
+  border: 2px solid var(--primary-blue); /* Garis pinggir */
+  padding: 10px 25px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 700; /* Sedikit lebih tebal */
+  font-size: 1em; /* Menyesuaikan ukuran font */
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* Efek Hover tombol Lihat */
+.view-button:hover {
+  background-color: var(--primary-blue);
+  color: var(--white);
+}
+
+/* Jarak ikon mata dengan teks "Lihat" */
+.view-button i {
+  margin-right: 8px;
+}
+
+/* Penyesuaian tombol Order agar tingginya sama persis dengan tombol Lihat */
+.order-button {
+  border: 2px solid var(--secondary-yellow); /* Tambah border transparan agar ukuran box sama */
+  padding: 10px 25px; /* Samakan padding dengan view-button */
+  display: inline-flex;
+  align-items: center;
+}
+
+/* --- STYLE UNTUK POPUP (MODAL) --- */
+.modal {
+  display: none; /* Sembunyi dulu */
+  position: fixed;
+  z-index: 9999; /* Pastikan di atas segalanya */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9); /* Latar belakang hitam transparan */
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  max-width: 90%;
+  max-height: 90vh; /* Maksimal tinggi 90% layar */
+  border-radius: 5px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  animation: zoom 0.3s; /* Efek zoom saat muncul */
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  z-index: 10000;
+}
+
+.close:hover {
+  color: var(--secondary-yellow);
+}
+
+/* --- STYLE LOGO TEKS BARU --- */
+
+/* Reset style untuk div logo agar rapi */
+header .logo {
+  display: flex;
+  align-items: center;
+}
+
+/* Style utama teks logo */
+header .logo a {
+  font-family: "Montserrat", sans-serif; /* Menggunakan font yang sudah ada */
+  font-size: 1.8rem; /* Ukuran besar */
+  font-weight: 800; /* Sangat tebal (Bold) */
+  text-decoration: none; /* Hilangkan garis bawah */
+  color: var(--primary-blue); /* Warna 'ElFi' (Biru Teal) */
+  letter-spacing: -0.5px; /* Rapatkan sedikit agar solid */
+  transition: transform 0.3s ease; /* Efek animasi halus */
+}
+
+/* Style khusus untuk kata 'Creative' */
+header .logo a span {
+  color: var(--secondary-yellow); /* Warna 'Creative' (Kuning Emas) */
+  font-weight: 600; /* Sedikit lebih tipis dari ElFi agar dinamis */
+}
+
+/* Efek saat mouse diarahkan ke logo */
+header .logo a:hover {
+  transform: scale(1.05); /* Membesar sedikit saat disentuh */
+}
+
+/* Hapus style img lama jika masih mengganggu */
+header .logo img {
+  display: none;
+}
+
+/* --- STYLE TAMBAHAN UNTUK SECTION LOCATION (MAPS) --- */
+#location {
+  background-color: var(--white);
+  padding: 60px 0;
+  text-align: center;
+  position: relative;
+  z-index: 1; /* Pastikan di atas elemen background lain */
+}
+
+#location h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: var(--primary-blue);
+}
+
+.map-container {
+  width: 100%;
+  max-width: 900px; /* Batasi lebar peta agar tidak terlalu lebar di layar besar */
+  margin: 0 auto; /* Tengah-kan peta */
+  overflow: hidden;
+  border-radius: 15px; /* Sudut melengkung */
+  border: 4px solid var(--light-blue-bg); /* Bingkai warna biru muda */
+}
